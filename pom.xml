@@ -6,7 +6,7 @@
 
     <groupId>pl.starozytny.dropmanager</groupId>
     <artifactId>DropManager-API</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <version>1.0.0-dev</version>
 
     <properties>
         <maven.compiler.source>16</maven.compiler.source>
@@ -29,17 +29,41 @@
             <version>1.18.28</version>
         </dependency>
 
+        <!-- Annotations -->
         <dependency>
             <groupId>org.jetbrains</groupId>
             <artifactId>annotations</artifactId>
-            <version>24.0.1</version> <!-- aktualizuj do najnowszej wersji -->
+            <version>24.0.1</version>
         </dependency>
 
-        <!-- The core Spigot-API -->
+        <!-- Spigot-API -->
         <dependency>
             <groupId>org.spigotmc</groupId>
             <artifactId>spigot-api</artifactId>
             <version>1.20.1-R0.1-SNAPSHOT</version>
         </dependency>
     </dependencies>
+
+    <!-- Builds Plugin -->
+    <build>
+        <defaultGoal>clean package</defaultGoal>
+        <finalName>DropManager-API-${project.version}</finalName>
+        <sourceDirectory>${basedir}/src</sourceDirectory>
+        <plugins>
+            <!-- Make a Jar -->
+            <plugin>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.11.0</version>
+                <configuration>
+                    <source>1.8</source>
+                    <target>1.8</target>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <version>2.3.1</version>
+            </plugin>
+        </plugins>
+    </build>
 </project>
